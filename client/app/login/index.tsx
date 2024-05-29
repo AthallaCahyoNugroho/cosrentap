@@ -7,6 +7,7 @@ export default function LoginPage(){
     <SafeAreaView style={styles.container}>
         <Text>Test</Text>
         <Link href={`(tabs)`}> Dashboard</Link>
+        <Link href={`register`}> Register</Link>
     </SafeAreaView>
     )
 }
