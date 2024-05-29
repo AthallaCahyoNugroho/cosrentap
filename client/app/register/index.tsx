@@ -3,7 +3,7 @@ import {
     View,
     TextInput,
     Text
- } from "react-native";
+} from "react-native";
 
 import { Link } from "expo-router";
 
