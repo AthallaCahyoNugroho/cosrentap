@@ -3,11 +3,29 @@ import {
     Text, 
     StyleSheet,
     TextInput,
-    View 
+    View,
+    Alert,
+    Button
 } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+
+import React, { useState } from 'react';
+import { users } from '../../../dataDummy/dummy';
 
 export default function LoginPage(){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+            router.navigate('(tabs)');
+            return user
+        } else {
+            Alert.alert('Invalid credentials', 'Please check your email and password');
+        }
+    };
+    
     return (
     <SafeAreaView style={styles.container}>
         <Text style={styles.textTitleLight}>Cosrentap</Text>
@@ -16,8 +34,11 @@ export default function LoginPage(){
             <Text style={styles.textLabel}>YOUR EMAIL</Text>
             <TextInput 
                 style={styles.textInput}
+                onChangeText={setEmail}
+                keyboardType="email-address"
                 placeholder="youremail@example.com"
-                keyboardType="ascii-capable"
+                value={email}
+                autoCapitalize="none"
             />
         </View>
         <View style={styles.containerInputLabel}>
@@ -25,17 +46,25 @@ export default function LoginPage(){
             <TextInput 
                 style={styles.textInput}
                 placeholder="********"
-                keyboardType="ascii-capable"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
             />
         </View>
-        <Link 
-            style={styles.blueButton} 
-            href={`(tabs)`}
-        >Login</Link>
+        
+        <View style={styles.blueButton}>
+            <Button 
+                title="Login"
+                onPress={handleLogin}
+                color={'#315EE7'}
+            />
+        </View>
+
         <Text style={styles.textOffer}>Don't have an account?</Text>
-        <Link style={styles.blackButton} 
-            href={`register`}
-        >Create an Account</Link>
+        <Link 
+            style={styles.blackButton} 
+            href={`(tabs)`}
+        >Create Account</Link>
     </SafeAreaView>
     )
 }
@@ -77,13 +106,8 @@ const styles = StyleSheet.create({
         borderRadius: 4
     },
     blueButton: {
-        backgroundColor: '#315EE7',
-        color: 'white',
-        textAlign: 'center',
         paddingVertical: 16,
         fontSize:16,
-        fontWeight: '700',
-        borderRadius: 8,
         marginTop: 6,
         marginBottom: 64
     }, 

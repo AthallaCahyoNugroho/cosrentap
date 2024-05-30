@@ -14,7 +14,7 @@ export default function GetStarted(){
                 <Text style={styles.textTitle}>COSRENTAP</Text>
                 <Text style={styles.textSubTitle}>Find the tenant, list your property in just a simple steps, in your hand.</Text>
                 <Text style={styles.textSubTitle}>You are one step away.</Text>
-                <Link style={styles.blackButton} href={`/login`}><Text>Get Started</Text></Link>
+                <Link style={styles.blackButton} href={`(auth)`}><Text>Get Started</Text></Link>
                 <Text style={styles.textSmall}>Kelompok 9 RPL</Text>
             </View>
         </SafeAreaView>
