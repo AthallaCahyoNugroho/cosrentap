@@ -1,6 +1,5 @@
 
-import UserLayout from "./(user)/_layout";
-import UserScreen from "./(user)";
+
 import { 
     View,
     Text,
