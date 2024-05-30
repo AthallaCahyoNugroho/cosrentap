@@ -12,54 +12,70 @@ import { SearchBar } from 'react-native-screens';
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.locationDesc}>
-        <Text style={styles.smallText}>Your current locations</Text>
-        <Text style={styles.locationText}>Bouddha, Kathmandu</Text>
-      </View>
-      <View style={styles.searchBarStyle}>
-        <TextInput
-          placeholder="useless placeholder"
-          keyboardType="ascii-capable"
-          placeholderTextColor={'#7D7F88'}
-        />
-      </View>
-      <Text style={styles.grettingsStyle}>Welcome to Cosrentap</Text>
-      <ScrollView
-        horizontal={true}
-      >
-        <Text>Lokasi Terdekat</Text>
-        <View style={styles.card1}>
+      <ScrollView>
+        <View style={styles.locationDesc}>
+          <Text style={styles.smallText}>Your current locations</Text>
+          <Text style={styles.locationText}>Bouddha, Kathmandu</Text>
+        </View>
+        <View style={styles.searchBarStyle}>
+          <TextInput
+            placeholder="useless placeholder"
+            keyboardType="ascii-capable"
+            placeholderTextColor={'#7D7F88'}
+          />
+        </View>
 
+        <Text style={styles.grettingsStyle}>Welcome to Cosrentap</Text>
+        
+        <View>
+          <Text style={styles.labelCard}>Lokasi Terdekat</Text>
+          <ScrollView
+            horizontal={true}
+            style={styles.card1container}
+          >
+            <View style={styles.card1}>
+              <Text>Yo</Text>
+            </View>
+            <View style={styles.card1}>
+            <Text>Yo</Text>
+            </View>
+          </ScrollView>
+        </View>
+
+        <View>
+          <Text style={styles.labelCard}>Top Rated</Text>
+          <ScrollView
+            horizontal={true}
+          >
+            <View style={styles.card1}>
+
+            </View>
+          </ScrollView>
+        </View>
+
+        <View>
+          <Text style={styles.labelCard}>Terbaru</Text>
+          <View style={styles.card2container}>
+            <View style={styles.card2}>
+
+            </View>
+            <View style={styles.card2}>
+
+            </View>
+          </View>
         </View>
       </ScrollView>
-      <ScrollView
-        horizontal={true}
-      >
-        <Text>Top Rated</Text>
-        <View style={styles.card1}>
-
-        </View>
-      </ScrollView>
-      <View>
-        <Text>Terbaru</Text>
-        <View style={styles.card2container}>
-          <View style={styles.card2}>
-
-          </View>
-          <View style={styles.card2}>
-
-          </View>
-        </View>
-      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
-    paddingTop: 32,
+    paddingTop: 40,
     paddingLeft: 16,
-    paddingRight: 16
+    paddingRight: 16,
+    display:'flex',
+    flex: 1
   },
   smallText:{
     color: '#7D7F88',
@@ -84,23 +100,37 @@ const styles = StyleSheet.create({
   },
   grettingsStyle:{
     color: '#1A1E25',
+    fontSize: 24,
+    fontWeight: '700'
+  },
+  labelCard:{
+    color: '#1A1E25',
     fontSize: 18,
+    marginBottom:20,
     fontWeight: '700'
   },
   card1: {
     width: 316,
     height: 189,
+    padding: 8,
     backgroundColor: '#E3E2E5',
     borderRadius: 8,
   },
+  card1container:{
+    display: 'flex',
+    flexDirection: 'row',
+    flex:1,
+    rowGap: 10,
+  },
   card2: {
-    width: 150,
+    flex: 1/2,
     height: 227,
     backgroundColor: '#E3E2E5',
     borderRadius: 8,
   },
   card2container:{
-    display: 'flex',
-    flexDirection: 'row'
-  }
+    flexDirection: 'row',
+    flex: 2,
+    gap: 8
+  },
 });
