@@ -11,17 +11,26 @@ import { Link, router } from "expo-router";
 
 import React, { useState } from 'react';
 import { users } from '../../../dataDummy/dummy';
+import UserScreen from "@/app/(tabs)/(user)";
 
 export default function LoginPage(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        const user = users.find(u => u.email === email && u.password === password);
+        const user = users.find(u => u.email === email && u.password === password && u.role === 'user');
+        const vendor = users.find(u => u.email === email && u.password === password && u.role === 'vendor');
+        const admin = users.find(u => u.email === email && u.password === password && u.role === 'adminr');
         if (user) {
-            router.navigate('(tabs)');
-            return user
-        } else {
+          router.navigate('(tabs)/(user)');
+        } 
+				else if (vendor){
+					router.navigate('(tabs)/(vendor)');
+				}
+				else if (admin){
+					router.navigate('(tabs)/(vendor)');
+				}
+				else {
             Alert.alert('Invalid credentials', 'Please check your email and password');
         }
     };

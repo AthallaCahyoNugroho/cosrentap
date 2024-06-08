@@ -1,10 +1,27 @@
 export const users = [
         {   
             id: 1,
-            name: "testing",
-            email : "testing@example.com",
+            name: "user",
+            email : "user@example.com",
             password: "A",
             role: "user"
+        },
+        {   
+            id: 2,
+            name: "vendor",
+            email : "vendor@example.com",
+            password: "A",
+            role: "vendor"
+        },
+    ]
+
+export const vendors = [
+        {   
+            id: 1,
+            name: "vendor",
+            email : "vendor@example.com",
+            password: "A",
+            role: "vendor"
         },
     ]
 
